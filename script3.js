@@ -1,4 +1,3 @@
-
 window.addEventListener("DOMContentLoaded", () => {
   const currentQuestText = document.getElementById("currentQuestText");
   const drawButtons = document.querySelectorAll(".draw-btn");

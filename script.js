@@ -1,4 +1,3 @@
-
 let allCards = [];
 let deck = { peaceful: [], conflict: [] };
 let cardsLoaded = false;
