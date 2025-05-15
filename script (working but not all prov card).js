@@ -55,7 +55,7 @@ undoBtn?.addEventListener('click', () => {
   if (isGeneral) {
     // Remove the old general card
     pile.splice(index, 1);
-    const currentIds = pile.filter(c => !c.drawn).map(c => c.id);
+    const currentIds = pile.map(c => c.id);
     const unusedGeneral = allCards.filter(c =>
       c.type.toLowerCase() === type &&
       c.category === 'General' &&
@@ -96,28 +96,8 @@ function pickRandom(array, n) {
 }
 
 function startGame(province) {
-  
-  const generalPeaceful = pickRandom(
-    allCards.filter(c => c.type === 'Peaceful' && c.category === 'General'),
-    4
-  );
-  const provincePeaceful = allCards.filter(c => c.type === 'Peaceful' && c.province === province);
-  
-  const peacefulFull = [...provincePeaceful, ...generalPeaceful];
-  const peaceful = pickRandom(peacefulFull, peacefulFull.length);
-
-
-  
-  const generalConflict = pickRandom(
-    allCards.filter(c => c.type === 'Conflict' && c.category === 'General'),
-    4
-  );
-  const provinceConflict = allCards.filter(c => c.type === 'Conflict' && c.province === province);
-  
-  const conflictFull = [...provinceConflict, ...generalConflict];
-  const conflict = pickRandom(conflictFull, conflictFull.length);
-
-
+  const peaceful = pickRandom(allCards.filter(c => c.type === 'Peaceful' && (c.province === province || c.category === 'General')), 12);
+  const conflict = pickRandom(allCards.filter(c => c.type === 'Conflict' && (c.province === province || c.category === 'General')), 12);
   deck = {
     peaceful: peaceful.map(c => ({ ...c, drawn: false })),
     conflict: conflict.map(c => ({ ...c, drawn: false }))

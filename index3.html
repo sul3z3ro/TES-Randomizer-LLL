@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TES: Side Quest</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <meta name="theme-color" content="#111827" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
+
+  <button id="endCampaignBtn" style="position: fixed; top: 8px; right: 8px; z-index: 9999;" class="text-sm bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
+    จบแคมเปญ
+  </button>
+
+  <h1 class="text-2xl font-bold mb-4 text-center">เควสรอง: The Elder Scrolls - Betrayer of the Second Era</h1>
+
+  <!-- Tab Navigation -->
+  <div class="flex justify-center space-x-2 mb-6">
+    <a href="index.html" class="tab-button bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">เหตุการณ์</a>
+    <a href="index2.html" class="tab-button bg-green-700 hover:bg-green-800 px-4 py-2 rounded">โหมด Delve</a>
+    <a href="index3.html" class="tab-button bg-purple-700 hover:bg-purple-800 px-4 py-2 rounded">เควสรอง</a>
+  </div>
+
+  <p id="currentQuestText" class="mb-6 text-lg text-yellow-300 text-center">ยังไม่มีเควสรองที่เลือก</p>
+  <img id="activeQuestImage" class="hidden w-full max-w-xs mt-4 rounded border-4 border-green-400" />
+
+  <button id="initialDrawBtn" class="mb-6 bg-green-600 px-4 py-2 rounded hover:bg-green-500">รับเควส</button>
+
+  <div id="sideQuestArea" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl hidden">
+    <div class="flex flex-col items-center">
+      <img class="quest-image hidden w-full max-w-xs rounded border-4 border-yellow-400 cursor-pointer" src="" alt="Side Quest 1" />
+      <button class="draw-btn mt-2 bg-green-700 px-3 py-2 rounded hover:bg-green-600 hidden" data-index="0" id="drawBtn0">ทิ้งเควสแล้วจั่วใหม่</button>
+    </div>
+    <div class="flex flex-col items-center">
+      <img class="quest-image hidden w-full max-w-xs rounded border-4 border-yellow-400 cursor-pointer" src="" alt="Side Quest 2" />
+      <button class="draw-btn mt-2 bg-green-700 px-3 py-2 rounded hover:bg-green-600 hidden" data-index="1" id="drawBtn1">ทิ้งเควสแล้วจั่วใหม่</button>
+    </div>
+  </div>
+
+  <div class="mt-8 flex gap-4">
+    <button id="completeQuest" class="hidden bg-lime-600 px-4 py-2 rounded hover:bg-lime-500">✅ เควสสำเร็จ</button>
+    <button id="failQuest" class="hidden bg-red-700 px-4 py-2 rounded hover:bg-red-600">❌ เควสล้มเหลว</button>
+  </div>
+
+  <script src="script3.js" defer></script>
+</body>
+</html>

@@ -1,4 +1,6 @@
 
+// ✅ Encounter System Script - Fixed Undo + Log Numbering
+
 let allCards = [];
 let deck = { peaceful: [], conflict: [] };
 let cardsLoaded = false;
@@ -47,32 +49,8 @@ undoBtn?.addEventListener('click', () => {
 
   const type = lastDrawn.type.toLowerCase();
   const pile = deck[type];
-  const index = pile.findIndex(c => c.id === lastDrawn.id);
-  if (index === -1) return;
-
-  const isGeneral = allCards.find(c => c.id === lastDrawn.id)?.category === 'General';
-
-  if (isGeneral) {
-    // Remove the old general card
-    pile.splice(index, 1);
-    const currentIds = pile.filter(c => !c.drawn).map(c => c.id);
-    const unusedGeneral = allCards.filter(c =>
-      c.type.toLowerCase() === type &&
-      c.category === 'General' &&
-      !currentIds.includes(c.id)
-    );
-    if (unusedGeneral.length > 0) {
-      const replacement = pickRandom(unusedGeneral, 1)[0];
-      const insertIndex = Math.floor(Math.random() * (pile.length + 1));
-      pile.splice(insertIndex, 0, { ...replacement, drawn: false });
-    }
-  } else {
-    // Put province-specific card back into random position
-    pile[index].drawn = false;
-    const [card] = pile.splice(index, 1);
-    const insertIndex = Math.floor(Math.random() * (pile.length + 1));
-    pile.splice(insertIndex, 0, card);
-  }
+  const cardIndex = pile.findIndex(c => c.id === lastDrawn.id);
+  if (cardIndex !== -1) pile[cardIndex].drawn = false;
 
   if (drawLog.firstChild) drawLog.removeChild(drawLog.firstChild);
 
@@ -96,28 +74,8 @@ function pickRandom(array, n) {
 }
 
 function startGame(province) {
-  
-  const generalPeaceful = pickRandom(
-    allCards.filter(c => c.type === 'Peaceful' && c.category === 'General'),
-    4
-  );
-  const provincePeaceful = allCards.filter(c => c.type === 'Peaceful' && c.province === province);
-  
-  const peacefulFull = [...provincePeaceful, ...generalPeaceful];
-  const peaceful = pickRandom(peacefulFull, peacefulFull.length);
-
-
-  
-  const generalConflict = pickRandom(
-    allCards.filter(c => c.type === 'Conflict' && c.category === 'General'),
-    4
-  );
-  const provinceConflict = allCards.filter(c => c.type === 'Conflict' && c.province === province);
-  
-  const conflictFull = [...provinceConflict, ...generalConflict];
-  const conflict = pickRandom(conflictFull, conflictFull.length);
-
-
+  const peaceful = pickRandom(allCards.filter(c => c.type === 'Peaceful' && (c.province === province || c.category === 'General')), 12);
+  const conflict = pickRandom(allCards.filter(c => c.type === 'Conflict' && (c.province === province || c.category === 'General')), 12);
   deck = {
     peaceful: peaceful.map(c => ({ ...c, drawn: false })),
     conflict: conflict.map(c => ({ ...c, drawn: false }))
@@ -210,15 +168,16 @@ function restoreLog() {
   if (!savedLog) return;
   const logs = JSON.parse(savedLog);
   logs.forEach((logItem, index) => {
-    const card = [...deck.peaceful, ...deck.conflict].find(c => c.id === logItem.id);
-    if (!card) return;
-    const entry = document.createElement('li');
-    const logNumber = index + 1;
-    entry.textContent = `ใบที่ ${logNumber}: ${card.id}`;
-    entry.className = 'cursor-pointer underline text-blue-300 hover:text-blue-100';
-    entry.addEventListener('click', () => showCard(card));
-    drawLog.prepend(entry);
-  });
+  const card = [...deck.peaceful, ...deck.conflict].find(c => c.id === logItem.id);
+  if (!card) return;
+  const entry = document.createElement('li');
+  const logNumber = index + 1; // ใบที่ 1, 2, ..., n
+  entry.textContent = `ใบที่ ${logNumber}: ${card.id}`;
+  entry.className = 'cursor-pointer underline text-blue-300 hover:text-blue-100';
+  entry.addEventListener('click', () => showCard(card));
+  drawLog.prepend(entry); // ใบที่มากกว่าขึ้นก่อน
+});
+
 }
 
 document.getElementById('endCampaignBtn')?.addEventListener('click', () => {

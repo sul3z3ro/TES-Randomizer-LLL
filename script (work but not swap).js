@@ -55,7 +55,7 @@ undoBtn?.addEventListener('click', () => {
   if (isGeneral) {
     // Remove the old general card
     pile.splice(index, 1);
-    const currentIds = pile.filter(c => !c.drawn).map(c => c.id);
+    const currentIds = pile.map(c => c.id);
     const unusedGeneral = allCards.filter(c =>
       c.type.toLowerCase() === type &&
       c.category === 'General' &&

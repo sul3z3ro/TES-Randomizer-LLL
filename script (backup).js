@@ -1,3 +1,4 @@
+// ✅ ระบบ Encounter - script.js ปรับให้จำสถานะเกมและ log การ์ดได้ข้ามแท็บ/รีโหลด
 
 let allCards = [];
 let deck = { peaceful: [], conflict: [] };
@@ -6,22 +7,7 @@ let lastDrawn = null;
 let showingFront = true;
 let roomCount = 0;
 
-const startBtn = document.getElementById('startBtn');
-const provinceSelect = document.getElementById('province');
-const drawPeaceful = document.getElementById('drawPeaceful');
-const drawConflict = document.getElementById('drawConflict');
-const undoBtn = document.getElementById('undoBtn');
-const cardDisplay = document.getElementById('cardDisplay');
-const frontImage = document.getElementById('frontImage');
-const backImage = document.getElementById('backImage');
-const cardFlip = document.getElementById('cardFlip');
-const provinceSection = document.getElementById('provinceSection');
-const provinceDisplay = document.getElementById('provinceDisplay');
-const provinceName = document.getElementById('provinceName');
-const cardCountPeaceful = document.getElementById('cardCountPeaceful');
-const cardCountConflict = document.getElementById('cardCountConflict');
-const drawLog = document.getElementById('drawLog');
-
+// ✅ โหลดการ์ด + restore deck และ log
 fetch('cards.json')
   .then(res => res.json())
   .then(data => {
@@ -31,6 +17,26 @@ fetch('cards.json')
     restoreLog();
   });
 
+const startBtn = document.getElementById('startBtn');
+const provinceSelect = document.getElementById('province');
+const drawPeaceful = document.getElementById('drawPeaceful');
+const drawConflict = document.getElementById('drawConflict');
+const undoBtn = document.getElementById('undoBtn');
+
+const cardDisplay = document.getElementById('cardDisplay');
+const frontImage = document.getElementById('frontImage');
+const backImage = document.getElementById('backImage');
+const cardFlip = document.getElementById('cardFlip');
+
+const provinceSection = document.getElementById('provinceSection');
+const provinceDisplay = document.getElementById('provinceDisplay');
+const provinceName = document.getElementById('provinceName');
+
+const cardCountPeaceful = document.getElementById('cardCountPeaceful');
+const cardCountConflict = document.getElementById('cardCountConflict');
+const drawLog = document.getElementById('drawLog');
+
+// ✅ ปุ่มเริ่มเกม
 startBtn.addEventListener('click', () => {
   if (!cardsLoaded) return alert("รอโหลดการ์ดก่อนนะครับ...");
   const province = provinceSelect.value;
@@ -38,51 +44,21 @@ startBtn.addEventListener('click', () => {
   startGame(province);
 });
 
-drawPeaceful?.addEventListener('click', () => drawCard('peaceful'));
-drawConflict?.addEventListener('click', () => drawCard('conflict'));
+// ✅ ปุ่มจั่ว
+if (drawPeaceful) drawPeaceful.addEventListener('click', () => drawCard('peaceful'));
+if (drawConflict) drawConflict.addEventListener('click', () => drawCard('conflict'));
 
+// ✅ ปุ่ม undo
 undoBtn?.addEventListener('click', () => {
   if (!lastDrawn) return alert('ไม่มีการ์ดล่าสุดให้ย้อนกลับ');
   if (!confirm('คุณแน่ใจว่าต้องการย้อนกลับการจั่วล่าสุด?')) return;
-
   const type = lastDrawn.type.toLowerCase();
-  const pile = deck[type];
-  const index = pile.findIndex(c => c.id === lastDrawn.id);
-  if (index === -1) return;
-
-  const isGeneral = allCards.find(c => c.id === lastDrawn.id)?.category === 'General';
-
-  if (isGeneral) {
-    // Remove the old general card
-    pile.splice(index, 1);
-    const currentIds = pile.filter(c => !c.drawn).map(c => c.id);
-    const unusedGeneral = allCards.filter(c =>
-      c.type.toLowerCase() === type &&
-      c.category === 'General' &&
-      !currentIds.includes(c.id)
-    );
-    if (unusedGeneral.length > 0) {
-      const replacement = pickRandom(unusedGeneral, 1)[0];
-      const insertIndex = Math.floor(Math.random() * (pile.length + 1));
-      pile.splice(insertIndex, 0, { ...replacement, drawn: false });
-    }
-  } else {
-    // Put province-specific card back into random position
-    pile[index].drawn = false;
-    const [card] = pile.splice(index, 1);
-    const insertIndex = Math.floor(Math.random() * (pile.length + 1));
-    pile.splice(insertIndex, 0, card);
-  }
-
-  if (drawLog.firstChild) drawLog.removeChild(drawLog.firstChild);
-
-  roomCount = Math.max(0, roomCount - 1);
+  deck[type] = deck[type].filter(c => c.id !== lastDrawn.id);
   lastDrawn = null;
+  saveDeck();
+  updateCardCount();
   cardDisplay.classList.add('hidden');
   undoBtn.classList.add('hidden');
-  updateCardCount();
-  saveDeck();
-  saveLog();
 });
 
 function pickRandom(array, n) {
@@ -96,34 +72,19 @@ function pickRandom(array, n) {
 }
 
 function startGame(province) {
-  
-  const generalPeaceful = pickRandom(
-    allCards.filter(c => c.type === 'Peaceful' && c.category === 'General'),
-    4
+  const peaceful = pickRandom(
+    allCards.filter(c => c.type === 'Peaceful' && (c.province === province || c.category === 'General')),
+    12
   );
-  const provincePeaceful = allCards.filter(c => c.type === 'Peaceful' && c.province === province);
-  
-  const peacefulFull = [...provincePeaceful, ...generalPeaceful];
-  const peaceful = pickRandom(peacefulFull, peacefulFull.length);
-
-
-  
-  const generalConflict = pickRandom(
-    allCards.filter(c => c.type === 'Conflict' && c.category === 'General'),
-    4
+  const conflict = pickRandom(
+    allCards.filter(c => c.type === 'Conflict' && (c.province === province || c.category === 'General')),
+    12
   );
-  const provinceConflict = allCards.filter(c => c.type === 'Conflict' && c.province === province);
-  
-  const conflictFull = [...provinceConflict, ...generalConflict];
-  const conflict = pickRandom(conflictFull, conflictFull.length);
-
-
   deck = {
     peaceful: peaceful.map(c => ({ ...c, drawn: false })),
     conflict: conflict.map(c => ({ ...c, drawn: false }))
   };
-  roomCount = 0;
-  lastDrawn = null;
+  sessionStorage.setItem('deckEncounter', JSON.stringify(deck));
   sessionStorage.setItem('hasStartedEncounter', 'true');
   sessionStorage.setItem('startedProvinceEncounter', province);
   provinceSection.classList.add('hidden');
@@ -132,8 +93,8 @@ function startGame(province) {
   startBtn.classList.add('hidden');
   undoBtn.classList.add('hidden');
   updateCardCount();
-  drawLog.innerHTML = '';
-  saveDeck();
+  if (drawLog) drawLog.innerHTML = '';
+  roomCount = 0;
   saveLog();
 }
 
@@ -142,24 +103,21 @@ function drawCard(type) {
   if (!pile) return;
   const next = pile.find(c => !c.drawn);
   if (!next) return alert('การ์ดในกองนี้หมดแล้ว');
-
   next.drawn = true;
   lastDrawn = next;
-  roomCount++;
   saveDeck();
   updateCardCount();
   showCard(next);
   undoBtn.classList.remove('hidden');
 
+  roomCount++;
   const entry = document.createElement('li');
   entry.textContent = `ใบที่ ${roomCount}: ${next.id}`;
   entry.className = 'cursor-pointer underline text-blue-300 hover:text-blue-100';
   entry.addEventListener('click', () => showCard(next));
-  drawLog.prepend(entry);
+  drawLog?.prepend(entry);  // log ล่าสุดอยู่ด้านบน
   saveLog();
 }
-
-cardFlip?.addEventListener('click', () => cardFlip.classList.toggle('flipped'));
 
 function showCard(card) {
   showingFront = true;
@@ -168,6 +126,8 @@ function showCard(card) {
   cardFlip.classList.remove('flipped');
   cardDisplay.classList.remove('hidden');
 }
+
+cardFlip?.addEventListener('click', () => cardFlip.classList.toggle('flipped'));
 
 function updateCardCount() {
   const p = deck.peaceful?.filter(c => !c.drawn).length || 0;
@@ -180,15 +140,10 @@ function saveDeck() {
   sessionStorage.setItem('deckEncounter', JSON.stringify(deck));
 }
 
-function saveLog() {
-  const drawnLogs = [...deck.peaceful, ...deck.conflict].filter(c => c.drawn).map(c => ({ id: c.id, type: c.type }));
-  sessionStorage.setItem('logEncounter', JSON.stringify(drawnLogs));
-  sessionStorage.setItem('roomCountEncounter', roomCount.toString());
-}
-
 function restoreDeck() {
   const saved = sessionStorage.getItem('deckEncounter');
   if (saved) deck = JSON.parse(saved);
+  updateCardCount();
   const started = sessionStorage.getItem('hasStartedEncounter');
   const province = sessionStorage.getItem('startedProvinceEncounter');
   if (started && province) {
@@ -198,31 +153,43 @@ function restoreDeck() {
     startBtn.classList.add('hidden');
     undoBtn.classList.add('hidden');
   }
-  updateCardCount();
+}
+
+function saveLog() {
+  if (!drawLog) return;
+  const items = Array.from(drawLog.children).map(li => li.textContent);
+  sessionStorage.setItem('logEncounter', JSON.stringify(items));
+  sessionStorage.setItem('roomCountEncounter', roomCount.toString());
 }
 
 function restoreLog() {
   const savedLog = sessionStorage.getItem('logEncounter');
   const savedCount = sessionStorage.getItem('roomCountEncounter');
-  if (savedCount) roomCount = parseInt(savedCount) || 0;
+  const logList = document.getElementById('drawLog');
+  if (savedLog && logList) {
+    const items = JSON.parse(savedLog);
+    logList.innerHTML = '';
+    // 🔄 เรียงจากรายการล่าสุดไปเก่าสุด
+    items.reverse().forEach(text => {
+      const entry = document.createElement('li');
+      entry.textContent = text;
+      entry.className = 'cursor-pointer underline text-blue-300 hover:text-blue-100';
+      const cardId = text.split(': ')[1];
+      const card = [...deck.peaceful, ...deck.conflict].find(c => c.id === cardId);
+      if (card) {
+        entry.addEventListener('click', () => showCard(card));
+      }
+      logList.prepend(entry); // ใส่ด้านบนสุดเพื่อให้ log ล่าสุดอยู่บน
+    });
+  }
+  if (savedCount) roomCount = parseInt(savedCount);
 
-  drawLog.innerHTML = '';
-  if (!savedLog) return;
-  const logs = JSON.parse(savedLog);
-  logs.forEach((logItem, index) => {
-    const card = [...deck.peaceful, ...deck.conflict].find(c => c.id === logItem.id);
-    if (!card) return;
-    const entry = document.createElement('li');
-    const logNumber = index + 1;
-    entry.textContent = `ใบที่ ${logNumber}: ${card.id}`;
-    entry.className = 'cursor-pointer underline text-blue-300 hover:text-blue-100';
-    entry.addEventListener('click', () => showCard(card));
-    drawLog.prepend(entry);
-  });
-}
-
-document.getElementById('endCampaignBtn')?.addEventListener('click', () => {
+// ✅ ปุ่มจบแคมเปญ
+const endCampaignBtn = document.getElementById('endCampaignBtn');
+endCampaignBtn?.addEventListener('click', () => {
   if (!confirm('คุณต้องการจบแคมเปญทั้งหมดหรือไม่? หลังจากกดตกลงข้อมูลจะถูกล้างทั้งหมด')) return;
   sessionStorage.clear();
   location.reload();
 });
+
+}
