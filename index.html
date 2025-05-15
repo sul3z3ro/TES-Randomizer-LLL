@@ -48,17 +48,62 @@
       left: 0;
       transform: rotateY(180deg);
     }
+      .gradient-swap {
+    background: linear-gradient(to right, #3b82f6, #ef4444);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out;
+  }
+
+  .gradient-swap:hover {
+    background-position: right center;
+  }
+
+  .gradient-delve {
+    background: linear-gradient(to right, #3b82f6, #000000);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out;
+  }
+
+  .gradient-delve:hover {
+    background-position: right center;
+  }
+
+  .gradient-quest {
+    background: linear-gradient(to right, #8B4513, #dc2626);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out;
+  }
+
+  .gradient-quest:hover {
+    background-position: right center;
+  }
   </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
 
-  <h1 class="text-2xl font-bold mb-4 text-center">The Elder Scrolls: Betrayer of the Second Era Encounter Randomizer by Lanlalen</h1>
+  <h1 class="text-2xl font-bold mb-4 text-center">The Elder Scrolls: Betrayer of the Second Era</h1>
+  <h1 class="text-2xl font-bold mb-4 text-center">Randomizer by Lanlalen</h1>
 
   <!-- Tab Navigation -->
   <div class="flex justify-center space-x-2 mb-6">
-    <a href="index.html" class="tab-button bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">เหตุการณ์</a>
-    <a href="index2.html" class="tab-button bg-green-700 hover:bg-green-800 px-4 py-2 rounded">โหมด Delve</a>
-    <a href="index3.html" class="tab-button bg-purple-700 hover:bg-purple-800 px-4 py-2 rounded">เควสรอง</a>
+<a href="index.html"
+   class="gradient-swap text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  เหตุการณ์
+</a>
+
+<a href="index2.html"
+   class="gradient-delve text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  โหมด Delve
+</a>
+
+<a href="index3.html"
+   class="gradient-quest text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  เควสรอง
+</a>
+
   </div>
 
   <!-- Tabs -->
@@ -84,14 +129,14 @@
     <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center w-full">
       <div class="flex flex-col items-center">
         <p id="cardCountPeaceful" class="text-blue-300 mb-1"></p>
-        <button id="drawPeaceful" class="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded">
-          จั่วเหตุการณ์แบบสันติ
+        <button id="drawPeaceful" class="bg-blue-700 hover:bg-blue-800 py-2 px-4 rounded">
+          ☮️จั่วเหตุการณ์แบบสันติ☮️
         </button>
       </div>
       <div class="flex flex-col items-center">
         <p id="cardCountConflict" class="text-red-300 mb-1"></p>
-        <button id="drawConflict" class="bg-red-500 hover:bg-red-600 py-2 px-4 rounded">
-          จั่วเหตุการณ์แบบต่อสู้
+        <button id="drawConflict" class="bg-red-700 hover:bg-red-800 py-2 px-4 rounded">
+          ⚔️จั่วเหตุการณ์แบบต่อสู้⚔️
         </button>
       </div>
     </div>
@@ -122,9 +167,7 @@
   <ul id="drawLog" class="space-y-1 text-blue-300"></ul>
 </div>
   <!-- ปุ่มจบแคมเปญ -->
-<button id="endCampaignBtn" style="position: fixed; top: 8px; right: 8px; z-index: 9999;" class="text-sm bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
-  จบแคมเปญ
-</button>
+<button id="endCampaignBtn" class="fixed top-2 right-2 bg-gray-700 hover:bg-gray-800 text-sm px-3 py-1 rounded">❌ จบแคมเปญ</button>
 
 </body>
 </html>

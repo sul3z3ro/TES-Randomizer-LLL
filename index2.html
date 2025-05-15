@@ -7,6 +7,40 @@
   <title>โหมด Delve</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="script2.js" defer></script>
+  <style>
+  .gradient-swap {
+    background: linear-gradient(to right, #3b82f6, #ef4444);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 1s ease-in-out;
+  }
+
+  .gradient-swap:hover {
+    background-position: right center;
+  }
+
+  .gradient-delve {
+    background: linear-gradient(to right, #3b82f6, #000000);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 1s ease-in-out;
+  }
+
+  .gradient-delve:hover {
+    background-position: right center;
+  }
+
+  .gradient-quest {
+    background: linear-gradient(to right, #8B4513, #dc2626);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 1s ease-in-out;
+  }
+
+  .gradient-quest:hover {
+    background-position: right center;
+  }
+</style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
 
@@ -14,9 +48,20 @@
   <h1 class="text-xl font-bold mb-2 text-center">โหมด Delve</h1>
   <!-- Tab Navigation -->
   <div class="flex justify-center space-x-2 mb-6">
-    <a href="index.html" class="tab-button bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">เหตุการณ์</a>
-    <a href="index2.html" class="tab-button bg-green-700 hover:bg-green-800 px-4 py-2 rounded">โหมด Delve</a>
-    <a href="index3.html" class="tab-button bg-purple-700 hover:bg-purple-800 px-4 py-2 rounded">เควสรอง</a>
+<a href="index.html"
+   class="gradient-swap text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  เหตุการณ์
+</a>
+
+<a href="index2.html"
+   class="gradient-delve text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  โหมด Delve
+</a>
+
+<a href="index3.html"
+   class="gradient-quest text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  เควสรอง
+</a>
   </div>
 
 
@@ -44,9 +89,9 @@
   </div>
 
   <div class="flex flex-wrap justify-center gap-4 mb-6">
-    <button id="addSPBtn" class="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 rounded">เพิ่มการ์ด SP</button>
-    <button id="drawDelveCard" class="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded">จั่วการ์ด</button>
-    <button id="endEncounterBtn" class="bg-red-500 hover:bg-red-600 py-2 px-4 rounded">จบเหตุการณ์</button>
+    <button id="addSPBtn" class="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 rounded">💎เพิ่มการ์ด SP💎</button>
+    <button id="drawDelveCard" class="bg-gradient-to-r from-blue-500 to-black-500 py-2 px-4 rounded">🔎สำรวจ🔎</button>
+    <button id="endEncounterBtn" class="bg-red-700 hover:bg-red-800 py-2 px-4 rounded">🛑จบเหตุการณ์🛑</button>
   </div>
 
   <div id="cardArea" class="hidden text-center mb-4">

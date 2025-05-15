@@ -15,26 +15,72 @@
       });
     }
   </script>
+  <style>
+  .gradient-swap {
+    background: linear-gradient(to right, #3b82f6, #ef4444);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 1s ease-in-out;
+  }
+
+  .gradient-swap:hover {
+    background-position: right center;
+  }
+
+  .gradient-delve {
+    background: linear-gradient(to right, #3b82f6, #000000);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 1s ease-in-out;
+  }
+
+  .gradient-delve:hover {
+    background-position: right center;
+  }
+
+  .gradient-quest {
+    background: linear-gradient(to right, #8B4513, #dc2626);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 1s ease-in-out;
+  }
+
+  .gradient-quest:hover {
+    background-position: right center;
+  }
+</style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
 
-  <button id="endCampaignBtn" style="position: fixed; top: 8px; right: 8px; z-index: 9999;" class="text-sm bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
-    จบแคมเปญ
-  </button>
+  <button id="endCampaignBtn" class="fixed top-2 right-2 bg-gray-700 hover:bg-gray-800 text-sm px-3 py-1 rounded">❌ จบแคมเปญ</button>
 
   <h1 class="text-2xl font-bold mb-4 text-center">เควสรอง: The Elder Scrolls - Betrayer of the Second Era</h1>
 
   <!-- Tab Navigation -->
   <div class="flex justify-center space-x-2 mb-6">
-    <a href="index.html" class="tab-button bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">เหตุการณ์</a>
-    <a href="index2.html" class="tab-button bg-green-700 hover:bg-green-800 px-4 py-2 rounded">โหมด Delve</a>
-    <a href="index3.html" class="tab-button bg-purple-700 hover:bg-purple-800 px-4 py-2 rounded">เควสรอง</a>
+<a href="index.html"
+   class="gradient-swap text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  เหตุการณ์
+</a>
+
+<a href="index2.html"
+   class="gradient-delve text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  โหมด Delve
+</a>
+
+<a href="index3.html"
+   class="gradient-quest text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  เควสรอง
+</a>
   </div>
 
   <p id="currentQuestText" class="mb-6 text-lg text-yellow-300 text-center">ยังไม่มีเควสรองที่เลือก</p>
   <img id="activeQuestImage" class="hidden w-full max-w-xs mt-4 rounded border-4 border-green-400" />
 
-  <button id="initialDrawBtn" class="mb-6 bg-green-600 px-4 py-2 rounded hover:bg-green-500">รับเควส</button>
+  <button id="initialDrawBtn" class="inline-block text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out"
+   style="background-color: #8B4513;"
+   onmouseover="this.style.backgroundColor='#f5f5dc'; this.style.color='#000';"
+   onmouseout="this.style.backgroundColor='#8B4513'; this.style.color='white';">📜รับเควส📜</button>
 
   <div id="sideQuestArea" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl hidden">
     <div class="flex flex-col items-center">
@@ -48,7 +94,7 @@
   </div>
 
   <div class="mt-8 flex gap-4">
-    <button id="completeQuest" class="hidden bg-lime-600 px-4 py-2 rounded hover:bg-lime-500">✅ เควสสำเร็จ</button>
+    <button id="completeQuest" class="hidden bg-green-600 px-4 py-2 rounded hover:bg-green-500">✅ เควสสำเร็จ</button>
     <button id="failQuest" class="hidden bg-red-700 px-4 py-2 rounded hover:bg-red-600">❌ เควสล้มเหลว</button>
   </div>
 
