@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>โหมด Delve</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="script2.js" defer></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
+
+
+  <h1 class="text-xl font-bold mb-2 text-center">โหมด Delve</h1>
+  <!-- Tab Navigation -->
+  <div class="flex justify-center space-x-2 mb-6">
+    <a href="index.html" class="tab-button bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded">เหตุการณ์</a>
+    <a href="index2.html" class="tab-button bg-green-700 hover:bg-green-800 px-4 py-2 rounded">โหมด Delve</a>
+    <a href="index3.html" class="tab-button bg-purple-700 hover:bg-purple-800 px-4 py-2 rounded">เควสรอง</a>
+  </div>
+
+
+  <div id="delveSetup" class="mb-6 flex items-center gap-2">
+    <label for="delveProvince" class="block">เลือกเขตที่เล่น:</label>
+    <select id="delveProvince" class="text-black p-2 rounded">
+      <option>Black Marsh</option>
+      <option>High Rock</option>
+      <option>Cyrodill</option>
+      <option>Morrowind</option>
+      <option>Skyrim</option>
+    </select>
+    <button id="startDelve" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded">เริ่มเกม</button>
+  </div>
+
+  <div id="delveDisplay" class="hidden mb-4 text-center">
+    <p>เขตที่เล่นอยู่: <span id="delveProvinceName" class="font-semibold"></span></p>
+  </div>
+
+  <div class="relative mb-6">
+    <div id="drawPile" class="w-32 h-48 bg-cover bg-center rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105"
+         style="background-image: url('images/Delve-back.png');">
+      <span id="deckCount" class="absolute top-0 right-0 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded-bl">0</span>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap justify-center gap-4 mb-6">
+    <button id="addSPBtn" class="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 rounded">เพิ่มการ์ด SP</button>
+    <button id="drawDelveCard" class="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded">จั่วการ์ด</button>
+    <button id="endEncounterBtn" class="bg-red-500 hover:bg-red-600 py-2 px-4 rounded">จบเหตุการณ์</button>
+  </div>
+
+  <div id="cardArea" class="hidden text-center mb-4">
+    <img id="delveCardImage" src="" alt="Delve Card" class="w-60 rounded-lg mx-auto mb-2" />
+    <button id="hideCardBtn" class="bg-gray-600 hover:bg-gray-700 py-1 px-4 rounded">ปิดการ์ด</button>
+  </div>
+
+  <div id="logArea" class="w-full max-w-md mb-6">
+    <h2 class="text-lg font-bold mb-2">📝 การ์ดที่จั่วแล้ว:</h2>
+    <ul id="drawLog" class="space-y-1 text-blue-300"></ul>
+  </div>
+
+  <button id="endCampaignBtn" class="fixed top-2 right-2 bg-gray-700 hover:bg-gray-800 text-sm px-3 py-1 rounded">❌ จบแคมเปญ</button>
+
+</body>
+</html>
