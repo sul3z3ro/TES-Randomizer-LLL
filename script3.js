@@ -109,7 +109,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     currentQuestText.textContent = activeQuest
       ? `เควสรองที่ทำอยู่: ${activeQuest.name}`
-      : "ยังไม่มีเควสรองที่เลือก";
+      : "ยังไม่มีเควสรองที่เลือก (คลิกที่รูปเพื่อรับเควส)";
 
     if (activeQuest && activeImage) {
       activeImage.src = "images/" + activeQuest.front;
