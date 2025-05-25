@@ -1,61 +1,61 @@
 [
   {
     "id": "SQ-01",
-    "name": "ล่าสัตว์ร้ายใกล้หมู่บ้าน",
+    "name": "พลังมืดแห่งความละโมบ",
     "back": "sidequest-back.png",
     "front": "sq-01.png"
   },
   {
     "id": "SQ-02",
-    "name": "ตามหาเครื่องรางที่หายไป",
+    "name": "ทหารรับจ้างและเงาเกล็ด",
     "back": "sidequest-back.png",
     "front": "sq-02.png"
   },
   {
     "id": "SQ-03",
-    "name": "ช่วยขนเสบียงไปยังค่ายทหาร",
+    "name": "คำสรรเสริญจากแฟนคลับ",
     "back": "sidequest-back.png",
     "front": "sq-03.png"
   },
   {
     "id": "SQ-04",
-    "name": "ตรวจสอบแหล่งน้ำที่ปนเปื้อน",
+    "name": "อีกวันกับเหล่า Daedra",
     "back": "sidequest-back.png",
     "front": "sq-04.png"
   },
   {
     "id": "SQ-05",
-    "name": "ส่งจดหมายสำคัญไปยังปราสาท",
+    "name": "ปรับตัวด้วยสกิล",
     "back": "sidequest-back.png",
     "front": "sq-05.png"
   },
   {
     "id": "SQ-06",
-    "name": "ช่วยคนหลงทางในป่า",
+    "name": "ของเรียบง่ายแทนใจ",
     "back": "sidequest-back.png",
     "front": "sq-06.png"
   },
   {
     "id": "SQ-07",
-    "name": "กำจัดกับดักเวทมนตร์",
+    "name": "นักเผยแผ่ศาสนาน่ารำคาญ",
     "back": "sidequest-back.png",
     "front": "sq-07.png"
   },
   {
     "id": "SQ-08",
-    "name": "ค้นหาหลักฐานในซากปรักหักพัง",
+    "name": "โจรกลับใจ",
     "back": "sidequest-back.png",
     "front": "sq-08.png"
   },
   {
     "id": "SQ-09",
-    "name": "ช่วยนักเดินทางที่บาดเจ็บ",
+    "name": "ผู้เฝ้ามองในเงามืด",
     "back": "sidequest-back.png",
     "front": "sq-09.png"
   },
   {
     "id": "SQ-10",
-    "name": "เก็บสมุนไพรหายากให้หมอ",
+    "name": "หนูอีกแล้วเหรอ!",
     "back": "sidequest-back.png",
     "front": "sq-10.png"
   },
