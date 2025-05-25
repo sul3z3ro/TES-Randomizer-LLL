@@ -1,0 +1,50 @@
+[
+  {
+    "id": "Mages Guild",
+    "type": "Guild",
+    "frontImage": "MagesGuild-f.png",
+    "backImage": "MagesGuild-b.png"
+  },
+  {
+    "id": "Fighters Guild",
+    "type": "Guild",
+    "frontImage": "FightersGuild-f.png",
+    "backImage": "FightersGuild-b.png"
+  },
+  {
+    "id": "Thieves Guild",
+    "type": "Guild",
+    "frontImage": "ThievesGuild-f.png",
+    "backImage": "ThievessGuild-b.png"
+  },
+  {
+    "id": "Dark Brotherhood",
+    "type": "Guild",
+    "frontImage": "DarkBrotherhood-f.png",
+    "backImage": "DarkBrotherhood-b.png"
+  },
+  {
+    "id": "Psijic Order",
+    "type": "Guild",
+    "frontImage": "PsijicOrder-f.png",
+    "backImage": "PsijicOrder-b.png"
+  },
+  {
+    "id": "Circle of Champion",
+    "type": "Guild",
+    "frontImage": "CoC-f.png",
+    "backImage": "CoC-b.png"
+  },
+  {
+    "id": "Eye of the Queen",
+    "type": "Guild",
+    "frontImage": "EotQ-f.png",
+    "backImage": "EotQ-b.png"
+  },
+  {
+    "id": "Outer Watch",
+    "type": "Guild",
+    "frontImage": "OuterWatch-f.png",
+    "backImage": "OuterWatchQ-b.png"
+  }
+]

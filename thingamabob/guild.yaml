@@ -1,0 +1,107 @@
+guild_cards:
+  - id: "guild_04"
+    name: "Fighters Guild"
+    guild_description: |
+      Fighters Guild
+      Fighters Guild คือองค์กรที่ฝึกฝนและรวบรวมทหารรับจ้างทั่วแผ่นดิน Tamriel
+      พวกเขารับงานตามสัญญาว่าจ้าง ซึ่งมักจะสร้างผลประโยชน์ทั้งแก่กิลด์เอง
+      และแก่ประชาชนทั่วไป ด้วยจำนวนสมาชิกมากมายที่พร้อมรบอยู่เสมอ 
+      สมาพันธ์แห่งนี้จึงถูกเรียกใช้งานอย่างไม่ขาดสาย ทั้งเพื่อดูแลความปลอดภัย
+      ล่ามอนสเตอร์ และภารกิจอื่นอีกมากมาย
+    guild_focus: ปาร์ตี้จะมุ่งเน้นไปที่ภารกิจที่เต็มไปด้วยการต่อสู้หลากหลายรูปแบบ
+    guild_kiosk: |
+      Guild Hall Sparring
+      เมื่อคุณใช้แอคชันอาคารกิลด์ในเมือง
+      คุณสามารถจ่าย 1 XP ที่เก็บไว้
+      เพื่อฝึกสายสกิลประเภท ⚔️ ใดก็ได้
+      จากถุงครูฝึก"
+    quests:
+       - province: "Black Marsh"
+         quest_id: "A12"
+         starter_quest_name: "Blackrose Brigade"
+         session_snapshot: "ไปให้ถึงคุก Blackrose ก่อนที่พวกนอกกฎหมายจะไปถึง และป้องกันไม่ให้นักโทษคนสำคัญหลบหนีจากคุก"
+         description: |
+          “คุก Blackrose...” Hogfinn พึมพำ “ถ้าเป็นวันอื่น เขาอาจจะส่งพวกเราไปกวาดล้างพวกอาชญากรที่พยายามยึดป้อมนั่น”
+          นอร์ดหนุ่มหยุดนิ่งไปชั่วครู่ เลือกคำพูดอย่างระมัดระวังในฐานะตัวแทนอย่างเป็นทางการของ Fighters Guild แห่ง Stormhold
+          “แต่วันนี้... มีภัยร้ายแรงกว่าถูกคุมขังอยู่ที่คุกนั่น และก็มีหลักฐานบ่งชี้อย่างชัดเจนว่าจะมีการช่วยแหกคุก และพวก Blackguards ที่ควบคุมคุกเก่าแห่งนี้ก็
+          ไม่ได้เป็นพันธมิตรกับกิลด์ของเรา หรือแม้แต่กับชาว Black Marsh สักคนเดียว สายข่าวบอกมาว่า ถ้า Zirik หลบหนีไปได้—ทุกอย่างจะยิ่งเลวร้ายลง”
+          “พันธมิตรส่งตัวแทนไปยัง Alten Corimont พวกเขารอเจ้าอยู่ และเขาน่าจะให้ข้อมูลได้มากกว่านี้”
+         starting_location: "Stormhold"
+         special_setup: "นำยูนิตเควส Zirik ออกมาวางไว้ข้างแผนที่"
+         quest_objective: "เดินทางไปยัง Alten Corimont และสำเร็จเหตุการณ์เมือง (แนะนำ: ภายในวันที่ 3)"
+         ongoing_effects: ""
+         reward: "1 XP"
+
+       - province: "Cyrodill"
+         quest_id: "A12"
+         starter_quest_name: "Flame Out"
+         session_snapshot: "เข้าร่วมแนวหน้า สู้ในโหมด clash และแย่งชิง battlefront token เพื่อขัดขวางไม่ให้ Empire Remnant ทำให้ศึกสุดท้ายยากขึ้น"
+         description: |
+          ชาว Argonian ชื่อ Picks-Many-Fights เดินเข้ามาหาคุณ เขาคือสมาชิกของ Fighters Guild ที่เป็นที่รู้จักในระดับภูมิภาค และบอกว่าเขามีงานให้คุณทำ
+
+          “มีคนจ้างกิลด์ให้กำจัดพวกลัทธิบางกลุ่มในพื้นที่” เขากล่าว “ลัทธิพวกนี้เรียกตัวเองว่า Order of the Waking Flame พวกมันสวามิภักดิ์แด่ Mehrunes Dagon
+          เจ้าชายแห่งการทำลายล้างจาก Daedric ปกติแล้วกิลด์ทั้งสามมักจะไม่ค่อยลงรอยกันในเรื่องแนวหน้า แต่ครั้งนี้ทุกฝ่ายเห็นตรงกันว่าการกำจัดลัทธินี้เป็นผลประโยชน์ร่วมกัน
+          ด้วยสัญญานี้ เราเลยได้สิทธิ์ให้เข้าพื้นที่ปฏิบัติการที่ Kingscrest Keep เลยล่ะ”
+
+          Picks-Many-Fights ยื่นแผนที่ที่ทำเครื่องหมายไว้ชัดเจน ว่าแหล่งซ่องสุมของลัทธิอยู่ที่ใด
+
+          “Cyrodill เป็นพื้นที่ชั้นเยี่ยมสำหรับลัทธิ Waking Flame เพราะมี ‘ร่างให้ยึด’ มากพอสำหรับรองรับความหิวกระหายของ Dagon” เขาว่า
+          “กลุ่มเดียวที่ไม่กระตือรือร้นจะกำจัดพวกมัน เห็นจะเป็นพวก Empire อาจเป็นเพราะพวกมันได้ประโยชน์จากความวุ่นวายที่ลัทธิสร้างไว้ 
+          หรือไม่ก็มีข้อตกลงลับ ๆ กันอยู่แน่ ๆ ก็รู้อยู่นี่ ว่าลัทธิ Cult of the Black Worm ยังผูกสัมพันธ์กับผู้นำที่เหลือของ Empire อยู่เลย…
+          บางทีเหล่า Daedra อาจจะรู้จักคำว่าร่วมมือเป็นทีมกันเสียทีล่ะมั้ง?”
+         starting_location: "Kingscrest Keep"
+         special_setup: "นำยูนิตเควส Anchorite Deslandra ออกมาวางไว้ข้างแผนที่"
+         quest_objective: |
+          สำเร็จเหตุการณ์แบบต่อสู้ 2 ครั้งจากการเดินทาง (แนะนำ: ภายในวันที่ 11) หลังจากที่สำเร็จเหตุการณ์ต่อสู้ดังกล่าวครั้งที่ 2 แล้ว คุณสามารถเลือกที่จะ
+          ดำเนินการต่อไปยัง Quest Step B13 ในเฟสจบวันของวันใดก็ได้ ถ้า Empire Remnant กำลังได้เปรียบอยู่ (Dominant) ในตอนที่คุณเลือกไป
+          Quest Step B13 จะทำให้ Quest Step สุดท้ายยากขึ้น
+         ongoing_effects: |
+          ในขั้นตอนเรียกใช้ผลพิเศษของเขต ไอคอนการเดินทางจะไม่ทำงานเว้นแต่นักผจญภัยจะยอมจ่าย tenacity เท่ากับจำนวนนักผจญภัยในปาร์ตี้
+          การ์ดที่ไม่มีไอคอนจะทำงานตามปกติ (ทำให้ Empire ได้เปรียบ ดูหน้า 4 ของเล่มนี้ในหัวข้อ No Icons) เว้นแต่นักผจญภัยจะยอมจ่าย
+          tenacity เท่ากับจำนวนนักผจญภัยในปาร์ตี้เพื่อหยุดผลของมัน
+          
+          ทุกครั้งที่คุณสำเร็จ [โหมด clash แบบผันผวน] หรือ [โหมด delve แบบผันผวน] คุณสามารถเลื่อน battlefront token ไปยัง
+          ทิศใดก็ได้
+         reward: "0 XP"
+
+       - province: "High Rock"
+         quest_id: "A12"
+         starter_quest_name: "X"
+         session_snapshot: "X"
+         description: |
+          X
+         starting_location: "X"
+         special_setup: "X"
+         quest_objective: |
+          X
+         ongoing_effects: |
+          X
+         reward: "X"
+
+       - province: "Morrowind"
+         quest_id: "A12"
+         starter_quest_name: "X"
+         session_snapshot: "X"
+         description: |
+          X
+         starting_location: "X"
+         special_setup: "X"
+         quest_objective: |
+          X
+         ongoing_effects: |
+          X
+         reward: "X"
+
+       - province: "Skyrim"
+         quest_id: "A12"
+         starter_quest_name: "X"
+         session_snapshot: "X"
+         description: |
+          X
+         starting_location: "X"
+         special_setup: "X"
+         quest_objective: |
+          X
+         ongoing_effects: |
+          X
+         reward: "X"

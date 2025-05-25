@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo Black Marsh Mechanic</title>
+  <script src="script9.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind (optional) หรือจะใช้ CSS ข้างล่างแทนก็ได้ -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- js-yaml -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
+  <style>
+    @font-face {
+        font-family: 'K2D';
+        src: url('fonts/K2D-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    body {
+      background: #18181b;
+      color: #000000;
+      font-family: 'K2D', 'Noto Sans Thai', 'Segoe UI', sans-serif;
+    }
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-top: 0rem;
+      margin-bottom: 0.5rem;
+      color: #000000;
+    }
+    .block-box {
+      background: #E4E4DF;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 12px #0004;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.12rem;
+    }
+    .inline-icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: middle;
+      display: inline-block;
+      object-fit: contain;
+      margin: 0 0 0 0;
+    }
+    .header-icon {
+      width: 50px;
+      height: 50px;
+      vertical-align: middle;
+      display: inline-block;
+      object-fit: contain;
+      margin: 0 4px 0 0;
+    }
+    .label {
+      color: #84cc16;
+      font-weight: bold;
+      margin-right: 0.25rem;
+    }
+    .tight-row span {
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 1 !important;
+    }
+    .section-divider {
+        border: none;
+        border-top: 2px solid #000000; /* หรือสีที่ต้องการ */
+        margin: 2em 0;
+        opacity: 0.8;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <h1 class="text-2xl font-bold text-center mb-8 mt-8 text-yellow-300">Black Marsh Mechanic & Data</h1>
+  <div class="block-box">
+    <div class="section-title">คำอธิบาย</div>
+    <div id="desc"></div>
+  </div>
+  <div class="block-box">
+    <div class="section-title">ระบบ</div>
+    <div id="mechanic"></div>
+  </div>
+  <div class="block-box">
+    <div class="section-title">สกิล Native</div>
+    <div id="native"></div>
+  </div>
+  <div class="block-box">
+    <div class="section-title">จุดพิเศษของ Delve</div>
+    <div id="delve"></div>
+  </div>
+</body>
+</html>

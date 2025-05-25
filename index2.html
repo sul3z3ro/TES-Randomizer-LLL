@@ -1,12 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>โหมด Delve</title>
+  <title>TES: BotSE Randomizer by LLL</title>
+  <script src="script.js" defer></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="script2.js" defer></script>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <meta name="theme-color" content="#111827" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
   <style>
   .gradient-swap {
     background: linear-gradient(to right, #3b82f6, #ef4444);
@@ -40,17 +49,41 @@
   .gradient-quest:hover {
     background-position: right center;
   }
+
+  .gradient-guild {
+    background: linear-gradient(to right, #f0873d, #9b4d05);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out;
+  }
+  
+  .gradient-guild:hover {
+    background-position: right center;
+  }
+
+  .gradient-town {
+    background: linear-gradient(to right, #494949, #000000);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out;
+  }
+  
+  .gradient-town:hover {
+    background-position: right center;
+  }
+
 </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
 
+  <h1 class="text-2xl font-bold mb-4 text-center">The Elder Scrolls: Betrayer of the Second Era Randomizer by Lanlalen</h1>
+  <h1 class="text-xl font-bold mb-4 text-center">โหมด Delve (Delve Battle)</h1>
 
-  <h1 class="text-xl font-bold mb-2 text-center">โหมด Delve</h1>
   <!-- Tab Navigation -->
-  <div class="flex justify-center space-x-2 mb-6">
+  <div class="flex flex-wrap justify-center gap-2 mb-6">
 <a href="index.html"
    class="gradient-swap text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
-  เหตุการณ์
+  เหตุการณ์สันติ/ต่อสู้
 </a>
 
 <a href="index2.html"
@@ -62,6 +95,17 @@
    class="gradient-quest text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
   เควสรอง
 </a>
+
+<a href="index4.html"
+   class="gradient-town text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  เหตุการณ์เมือง
+</a>
+
+<a href="index5.html"
+   class="gradient-guild text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  การ์ดกิลด์และ Quest Step
+</a>
+
   </div>
 
 
@@ -83,8 +127,8 @@
 
   <div class="relative mb-6">
     <div id="drawPile" class="w-32 h-48 bg-cover bg-center rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105"
-         style="background-image: url('images/Delve-back.png');">
-      <span id="deckCount" class="absolute top-0 right-0 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded-bl">0</span>
+         style="background-image: url('images/delve/Z_Delve-back.png');">
+      <span id="deckCount" class="absolute top-0 right-0 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded-bl">0</span>
     </div>
   </div>
 

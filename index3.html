@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TES: Side Quest</title>
+  <title>TES: BotSE Randomizer by LLL</title>
+  <script src="script.js" defer></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icon-192.png" />
@@ -48,19 +49,43 @@
   .gradient-quest:hover {
     background-position: right center;
   }
+
+  .gradient-guild {
+    background: linear-gradient(to right, #f0873d, #9b4d05);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out;
+  }
+  
+  .gradient-guild:hover {
+    background-position: right center;
+  }
+
+  .gradient-town {
+    background: linear-gradient(to right, #494949, #000000);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out;
+  }
+  
+  .gradient-town:hover {
+    background-position: right center;
+  }
+
 </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
 
   <button id="endCampaignBtn" class="fixed top-2 right-2 bg-gray-700 hover:bg-gray-800 text-sm px-3 py-1 rounded">❌ จบแคมเปญ</button>
 
-  <h1 class="text-2xl font-bold mb-4 text-center">เควสรอง: The Elder Scrolls - Betrayer of the Second Era</h1>
+  <h1 class="text-2xl font-bold mb-4 text-center">The Elder Scrolls: Betrayer of the Second Era Randomizer by Lanlalen</h1>
+  <h1 class="text-xl font-bold mb-4 text-center">เควสรอง (Side Quest)</h1>
 
   <!-- Tab Navigation -->
-  <div class="flex justify-center space-x-2 mb-6">
+  <div class="flex flex-wrap justify-center gap-2 mb-6">
 <a href="index.html"
    class="gradient-swap text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
-  เหตุการณ์
+  เหตุการณ์สันติ/ต่อสู้
 </a>
 
 <a href="index2.html"
@@ -72,15 +97,31 @@
    class="gradient-quest text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
   เควสรอง
 </a>
+
+<a href="index4.html"
+   class="gradient-town text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  เหตุการณ์เมือง
+</a>
+
+<a href="index5.html"
+   class="gradient-guild text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
+  การ์ดกิลด์และ Quest Step
+</a>
+
   </div>
 
   <p id="currentQuestText" class="mb-6 text-lg text-yellow-300 text-center">ยังไม่มีเควสรองที่เลือก</p>
   <img id="activeQuestImage" class="hidden w-full max-w-xs mt-4 rounded border-4 border-green-400" />
 
-  <button id="initialDrawBtn" class="inline-block text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out"
-   style="background-color: #8B4513;"
-   onmouseover="this.style.backgroundColor='#f5f5dc'; this.style.color='#000';"
-   onmouseout="this.style.backgroundColor='#8B4513'; this.style.color='white';">📜รับเควส📜</button>
+  <button id="initialDrawBtn">
+
+    <div class="relative mb-6">
+    <div id="drawPile" class="w-32 h-48 bg-cover bg-center rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105"
+         style="background-image: url('images/SideQuest/side-quest-back.png');">
+      <span id="deckCount" class="absolute top-0 right-0 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded-bl">0</span>
+    </div>
+  </div>
+</button>
 
   <div id="sideQuestArea" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl hidden">
     <div class="flex flex-col items-center">
@@ -97,7 +138,5 @@
     <button id="completeQuest" class="hidden bg-green-600 px-4 py-2 rounded hover:bg-green-500">✅ เควสสำเร็จ</button>
     <button id="failQuest" class="hidden bg-red-700 px-4 py-2 rounded hover:bg-red-600">❌ เควสล้มเหลว</button>
   </div>
-
-  <script src="script3.js" defer></script>
 </body>
 </html>

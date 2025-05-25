@@ -1,0 +1,72 @@
+Black Marsh:
+ - Description: "Black Marsh มีอากาศที่เปลี่ยนแปลงอยู่ตลอดเวลาและไม่เป็นมิตรนัก Black Marsh มักจะท้าทายการวางแผนและพละกำลังของนักเดินทางอยู่เสมอ"
+   Mechanic: |
+    เมื่อเริ่มองก์ในเขต Black Marsh ให้วางโทเคน [icon:book] ไว้ที่ช่องแดดออก([icon:arrowup])บนแผนที่เดินทาง
+   
+    เมื่อใช้งานผลพิเศษของเขต ให้เลื่อนโทเคน [icon:book] ไปยังช่องของไอคอนเดินทางที่จั่วได้
+   
+    ในเฟสเดินทาง ให้ตรวจสอบสภาพอากาศปัจจุบัน เนื่องจากมันจะส่งผลต่อค่าเคลื่อนที่พื้นฐานของปาร์ตี้ นอกจากนี้สภาพอากาศจะส่งผลต่อความแข็งแกร่งของสกิล Native (Stormseer) ของศัตรูด้วย และสำหรับเควสใด ๆ ที่ใช้โทเคน [icon:banner] นี้ ไอคอนเดินทางจะควบคุมการเคลื่อนที่ของโทเคนเหล่านี้ในขั้นตอนใช้งานผลพิเศษของเขตด้วย
+
+    <div class="flex items-center gap-2">[icon-lg:arrowup]
+    <span class="block">ปรับสภาพอากาศเป็นแดดออก และเคลื่อนโทเคน [icon:banner] 4 ครั้งไปยังจุดหมาย<br>ของมัน</span>
+    </div>
+    <div class="flex items-center gap-2">[icon-lg:trident]
+    <span class="block">ปรับสภาพอากาศเป็นฝนตก และเคลื่อนโทเคน [icon:banner] 3 ครั้งไปยังจุดหมาย<br>ของมัน</span>
+    </div>
+    <div class="flex items-center gap-2">[icon-lg:eye]
+    <span class="block">ปรับสภาพอากาศเป็นน้ำท่วม และเคลื่อนโทเคน [icon:banner] 1 ครั้งไปยังจุดหมาย<br>ของมัน</span>
+    </div>
+    ไม่มีไอคอน: สภาพอากาศเป็นเช่นเดิม และไม่ต้องเลื่อนโทเคน [icon:banner]
+    [hr][b]เฟสเดินทาง:[/b]
+    [b]แดดออก[/b]: ค่าเคลื่อนที่พื้นฐานของปาร์ตี้เท่ากับ 3
+    [b]ฝนตก[/b]: ค่าเคลื่อนที่พื้นฐานของปาร์ตี้เท่ากับ 2
+    [b]น้ำท่วม[/b]: ค่าเคลื่อนที่พื้นฐานของปาร์ตี้เท่ากับ 2 เมื่อปาร์ตี้ฝืนเคลื่อนที่นักผจญภัยจะได้รับ
+    overfatigue แทนที่จะได้ light fatigue
+   Native_skill: |
+    [b]Stormseer:[/b] เมื่อยูนิตนี้เลือกเป้าหมายแล้ว <br class="block sm:hidden"> เป้าหมายจะต้อง exhaust ลูกเต๋าจากช่อง active จำนวน
+    [b]แดดออก[/b]: 1 ลูก
+    [b]ฝนตก[/b]: 2 ลูก
+    [b]น้ำท่วม[/b]: 3 ลูก
+   Delve_Feat: |
+    เมื่อเริ่มองก์ หาการ์ด delve ชื่อ Submerged Chamber (BM-SP-01) และแยกมันออกมา
+    ห้ามสับมันเข้าไปในกอง การ์ด delve ใบอื่นอาจจะมีคำสั่งให้คุณสับมันเข้าไปในกองหากพบเจอ
+
+Cyrodill:
+ - Mechanic: |
+    dsdasdasdas
+   Native_skill: |
+    dasdas
+   Delve_Feat: |
+    das
+
+High Rock:
+ - Mechanic: |
+    dsdasdasdas
+   Native_skill: |
+    dasdas
+   Delve_Feat: |
+    das
+
+Morrowind:
+ - Mechanic: |
+    dsdasdasdas
+   Native_skill: |
+    dasdas
+   Delve_Feat: |
+    das
+
+Skyrim:
+ - Mechanic: |
+    dsdasdasdas
+   Native_skill: |
+    dasdas
+   Delve_Feat: |
+    das
+
+Valenwood:
+ - Mechanic: |
+    dsdasdasdas
+   Native_skill: |
+    dasdas
+   Delve_Feat: |
+    das
