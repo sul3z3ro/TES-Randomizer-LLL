@@ -61,121 +61,121 @@
   },
   {
     "id": "SQ-11",
-    "name": "นำทางคาราวาน",
+    "name": "นักล่าจากต่างแดน",
     "back": "sidequest-back.png",
     "front": "sq-11.png"
   },
   {
     "id": "SQ-12",
-    "name": "รวบรวมชิ้นส่วนเครื่องจักรเวท",
+    "name": "เงาแห่ง Morrowind",
     "back": "sidequest-back.png",
     "front": "sq-12.png"
   },
   {
     "id": "SQ-13",
-    "name": "สอบสวนผู้ต้องสงสัย",
+    "name": "ทะยานข้ามฟากฟ้า",
     "back": "sidequest-back.png",
     "front": "sq-13.png"
   },
   {
     "id": "SQ-14",
-    "name": "แกะรอยสัตว์ปริศนา",
+    "name": "ก็ดูปกติดีนี่",
     "back": "sidequest-back.png",
     "front": "sq-14.png"
   },
   {
     "id": "SQ-15",
-    "name": "ลอบส่งของผิดกฎหมาย",
+    "name": "Bazri ขาโหด",
     "back": "sidequest-back.png",
     "front": "sq-15.png"
   },
   {
     "id": "SQ-16",
-    "name": "ขุดค้นซากศพเพื่อตามหาวัตถุโบราณ",
+    "name": "เมื่อชาว High Elf ถูกหยาม",
     "back": "sidequest-back.png",
     "front": "sq-16.png"
   },
   {
     "id": "SQ-17",
-    "name": "กำจัดผีในโรงแรมร้าง",
+    "name": "พลังแห่งความสามัคคี",
     "back": "sidequest-back.png",
     "front": "sq-17.png"
   },
   {
     "id": "SQ-18",
-    "name": "เข้าเฝ้าทูตจากแดนไกล",
+    "name": "ทางเลือกของนักสะสม",
     "back": "sidequest-back.png",
     "front": "sq-18.png"
   },
   {
     "id": "SQ-19",
-    "name": "ช่วยเจรจาสันติภาพ",
+    "name": "ปูโหดกระหายเลือด",
     "back": "sidequest-back.png",
     "front": "sq-19.png"
   },
   {
     "id": "SQ-20",
-    "name": "ทดลองเวทมนตร์รูปแบบใหม่",
+    "name": "ลูกเต๋า!",
     "back": "sidequest-back.png",
     "front": "sq-20.png"
   },
   {
     "id": "SQ-21",
-    "name": "ขนส่งสินค้าต้องห้าม",
+    "name": "คำโอ้อวดของ Bann Dar",
     "back": "sidequest-back.png",
     "front": "sq-21.png"
   },
   {
     "id": "SQ-22",
-    "name": "สะเดาะกุญแจห้องต้องห้าม",
+    "name": "หมกมุ่นกับมีตโลฟ",
     "back": "sidequest-back.png",
     "front": "sq-22.png"
   },
   {
     "id": "SQ-23",
-    "name": "ลอบเข้าแคมป์ศัตรู",
+    "name": "เล่นให้สุดใจไปเลย",
     "back": "sidequest-back.png",
     "front": "sq-23.png"
   },
   {
     "id": "SQ-24",
-    "name": "สืบหาความจริงในวัดร้าง",
+    "name": "เชี่ยวชาญทุกสายดาบ",
     "back": "sidequest-back.png",
     "front": "sq-24.png"
   },
   {
     "id": "SQ-25",
-    "name": "ลักลอบติดตั้งอุปกรณ์สายลับ",
+    "name": "จับมันให้หมด",
     "back": "sidequest-back.png",
     "front": "sq-25.png"
   },
   {
     "id": "SQ-26",
-    "name": "รับฟังคำทำนายจากนักบวช",
+    "name": "หัวขโมยแห่งแดนร้าง",
     "back": "sidequest-back.png",
     "front": "sq-26.png"
   },
   {
     "id": "SQ-27",
-    "name": "สร้างพันธมิตรกับพ่อค้า",
+    "name": "ศึกมาราธอน",
     "back": "sidequest-back.png",
     "front": "sq-27.png"
   },
   {
     "id": "SQ-28",
-    "name": "หยุดเหตุการณ์ลอบสังหาร",
+    "name": "สงครามของเขา ผู้บาดเจ็บของเรา",
     "back": "sidequest-back.png",
     "front": "sq-28.png"
   },
   {
     "id": "SQ-29",
-    "name": "ทดสอบอาวุธใหม่ของนักประดิษฐ์",
+    "name": "ภัยร้ายแห่งโลกใต้ดิน",
     "back": "sidequest-back.png",
     "front": "sq-29.png"
   },
   {
     "id": "SQ-30",
-    "name": "ฝึกทหารใหม่ในหมู่บ้าน",
+    "name": "ล่าทองใต้พิภพ",
     "back": "sidequest-back.png",
     "front": "sq-30.png"
   }
