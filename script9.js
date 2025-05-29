@@ -8,6 +8,7 @@ fetch('thingamabob/province_mechanic.yaml')
     function parseIcons(str) {
       return str
         .replace(/\[icon-lg:([a-zA-Z0-9_-]+)\]/g, '<img src="icon/$1.png" class="header-icon" alt="$1" />')
+        .replace(/\[icon-md:([a-zA-Z0-9_-]+)\]/g, '<img src="icon/$1.png" class="md-icon" alt="$1" />')
         .replace(/\[icon:([a-zA-Z0-9_-]+)\]/g, '<img src="icon/$1.png" class="inline-icon" alt="$1" />')
         .replace(/\[hr\]/g, '<hr class="my-4 section-divider"/>')
         .replace(/\[b\](.*?)\[\/b\]/g, '<b>$1</b>')
