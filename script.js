@@ -223,6 +223,36 @@ if (document.getElementById('provinceSection')) {
     sessionStorage.clear();
     location.reload();
   });
+  // Mobile Hamburger Menu
+const mobileHamburgerBtn = document.getElementById('mobileHamburgerBtn');
+const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
+let mobileMenuOpen = false;
+
+if (mobileHamburgerBtn && mobileMenuDrawer) {
+  mobileHamburgerBtn.addEventListener('click', function(e) {
+    mobileMenuDrawer.classList.toggle('-translate-x-full');
+    mobileMenuOpen = !mobileMenuOpen;
+  });
+  // ปิดเมนูถ้าคลิกข้างนอกเมนู
+  document.addEventListener('click', function(e) {
+    if (
+      mobileMenuOpen &&
+      !mobileMenuDrawer.contains(e.target) &&
+      !mobileHamburgerBtn.contains(e.target)
+    ) {
+      mobileMenuDrawer.classList.add('-translate-x-full');
+      mobileMenuOpen = false;
+    }
+  });
+}
+
+// ปุ่มจบแคมเปญใน Burger Menu (mobile)
+document.getElementById("mobileEndCampaignBtn")?.addEventListener("click", function () {
+  if (!confirm("คุณต้องการจบแคมเปญหรือไม่? หลังจากกดตกลงข้อมูลจะถูกล้างทั้งหมด")) return;
+  sessionStorage.clear();
+  location.reload();
+});
+
 }
 
 // ---------- Delve Mode (index2.html) ----------
@@ -414,6 +444,36 @@ if (document.getElementById('delveSetup')) {
       drawLog.prepend(entry);
     });
   }
+  // Mobile Hamburger Menu
+const mobileHamburgerBtn = document.getElementById('mobileHamburgerBtn');
+const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
+let mobileMenuOpen = false;
+
+if (mobileHamburgerBtn && mobileMenuDrawer) {
+  mobileHamburgerBtn.addEventListener('click', function(e) {
+    mobileMenuDrawer.classList.toggle('-translate-x-full');
+    mobileMenuOpen = !mobileMenuOpen;
+  });
+  // ปิดเมนูถ้าคลิกข้างนอกเมนู
+  document.addEventListener('click', function(e) {
+    if (
+      mobileMenuOpen &&
+      !mobileMenuDrawer.contains(e.target) &&
+      !mobileHamburgerBtn.contains(e.target)
+    ) {
+      mobileMenuDrawer.classList.add('-translate-x-full');
+      mobileMenuOpen = false;
+    }
+  });
+}
+
+// ปุ่มจบแคมเปญใน Burger Menu (mobile)
+document.getElementById("mobileEndCampaignBtn")?.addEventListener("click", function () {
+  if (!confirm("คุณต้องการจบแคมเปญหรือไม่? หลังจากกดตกลงข้อมูลจะถูกล้างทั้งหมด")) return;
+  sessionStorage.clear();
+  location.reload();
+});
+
 }
 
 // ---------- Side Quest Mode (index3.html) ----------
@@ -560,3 +620,22 @@ if (document.getElementById('currentQuestText')) {
     deckCount.textContent = availableDeck.length;
   }
 }
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const menuDrawer = document.getElementById('menuDrawer');
+  let menuOpen = false;
+
+  if (hamburgerBtn && menuDrawer) {
+    hamburgerBtn.addEventListener('click', function() {
+      menuDrawer.classList.toggle('-translate-x-full');
+      menuOpen = !menuOpen;
+    });
+    // ปิดเมนูถ้าคลิกข้างนอก
+    document.addEventListener('click', function(e) {
+      if (menuOpen && !menuDrawer.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+        menuDrawer.classList.add('-translate-x-full');
+        menuOpen = false;
+      }
+    });
+  }
+});

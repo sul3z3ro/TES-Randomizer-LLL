@@ -76,39 +76,79 @@
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4">
 
-  <button id="endCampaignBtn" class="fixed top-2 right-2 bg-gray-700 hover:bg-gray-800 text-sm px-3 py-1 rounded">❌ จบแคมเปญ</button>
-
-  <h1 class="text-2xl font-bold mb-4 text-center">The Elder Scrolls: Betrayer of the Second Era Randomizer by Lanlalen</h1>
-  <h1 class="text-xl font-bold mb-4 text-center">เควสรอง (Side Quest)</h1>
-
-  <!-- Tab Navigation -->
-  <div class="flex flex-wrap justify-center gap-2 mb-6">
-<a href="index.html"
-   class="gradient-swap text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
-  เหตุการณ์สันติ/ต่อสู้
-</a>
-
-<a href="index2.html"
-   class="gradient-delve text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
-  โหมด Delve
-</a>
-
-<a href="index3.html"
-   class="gradient-quest text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
-  เควสรอง
-</a>
-
-<a href="index4.html"
-   class="gradient-town text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
-  เหตุการณ์เมือง
-</a>
-
-<a href="index5.html"
-   class="gradient-guild text-white px-4 py-2 rounded text-center transition-colors duration-500 ease-in-out">
-  การ์ดกิลด์และ Quest Step
-</a>
-
+<!-- Hamburger Menu (Desktop/Tablet) -->
+<div class="fixed top-2 left-2 z-50 md:block hidden">
+  <button id="hamburgerBtn" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/>
+    </svg>
+  </button>
+  <div id="menuDrawer"
+       class="fixed top-0 left-0 w-64 h-full bg-gray-800 from-blue-950 via-blue-900 to-gray-800
+                  shadow-2xl p-6 z-50 transition-transform transform -translate-x-full border-r-4 border-blue-700">
+    <div class="mb-6">
+      <h1 class="text-xl font-bold text-white">TES: BotSE Randomizer by Lanlalen</h1>
+      <h2 class="text-md font-bold text-blue-300 mt-2">เหตุการณ์สันติ/ต่อสู้</h2>
+    </div>
+    <ul class="space-y-0 text-lg">
+      <li>
+        <a href="index.html" class="block px-2 py-3 rounded hover:bg-blue-900 text-white hover:text-blue-400 transition">เหตุการณ์สันติ/ต่อสู้</a>
+        <hr class="border-t border-black opacity-60 my-0">
+      </li>
+      <li>
+        <a href="index2.html" class="block px-2 py-3 rounded hover:bg-blue-900 text-white hover:text-blue-400 transition">โหมด Delve</a>
+        <hr class="border-t border-black opacity-60 my-0">
+      </li>
+      <li>
+        <a href="index3.html" class="block px-2 py-3 rounded hover:bg-blue-900 text-white hover:text-blue-400 transition">เควสรอง</a>
+        <hr class="border-t border-black opacity-60 my-0">
+      </li>
+      <li>
+        <a href="index4.html" class="block px-2 py-3 rounded hover:bg-blue-900 text-white hover:text-blue-400 transition">เหตุการณ์เมือง</a>
+        <hr class="border-t border-black opacity-60 my-0">
+      </li>
+      <li>
+        <a href="index5.html" class="block px-2 py-3 rounded hover:bg-blue-900 text-white hover:text-blue-400 transition">การ์ดกิลด์และ Quest Step</a>
+      </li>
+    </ul>
+    <!-- ปุ่มจบแคมเปญ ล่างสุด สีแดง -->
+    <button id="endCampaignBtn"
+          class="mt-8 w-full bg-transparent text-red-500 border border-red-500 hover:bg-red-700 hover:text-white py-2 rounded transition text-center font-bold">
+    ❌ จบแคมเปญ
+  </button>
   </div>
+</div>
+
+
+<!-- Bottom Navigation Bar (Mobile) -->
+<div class="fixed bottom-0 left-0 w-full bg-gray-900 border-t border-gray-700 z-50 flex md:hidden">
+  <a href="index.html" 
+     class="flex-1 py-3 text-center text-xs
+            text-white">
+    เหตุการณ์สันติ/ต่อสู้
+  </a>
+  <a href="index2.html" 
+     class="flex-1 py-3 text-center text-xs hover:text-blue-400 transition
+            text-White">
+    โหมด<br>Delve
+  </a>
+  <a href="index3.html" 
+     class="flex-1 py-3 text-center text-xs hover:text-blue-400 transition
+            text-blue-400 bg-white shadow-inner font-bold <!-- ใส่ text-blue-400 bg-blue-950 shadow-inner font-bold ได้เลยถ้า Active -->">
+    เควสรอง
+  </a>
+  <a href="index4.html" 
+     class="flex-1 py-3 text-center text-xs hover:text-blue-400 transition
+            text-white">
+    เหตุการณ์เมือง
+  </a>
+  <a href="index5.html" 
+     class="flex-1 py-3 text-center text-xs hover:text-blue-400 transition
+            text-white">
+    การ์ดกิลด์<br>Quest Step
+  </a>
+</div>
+
 
   <p id="currentQuestText" class="mb-6 text-lg text-yellow-300 text-center">ยังไม่มีเควสรองที่เลือก</p>
   <img id="activeQuestImage" class="hidden w-full max-w-xs mt-4 rounded border-4 border-green-400" />
@@ -128,7 +168,7 @@
       <img class="quest-image hidden w-full max-w-xs rounded border-4 border-yellow-400 cursor-pointer" src="" alt="Side Quest 1" />
       <button class="draw-btn mt-2 bg-green-700 px-3 py-2 rounded hover:bg-green-600 hidden" data-index="0" id="drawBtn0">ทิ้งเควสแล้วจั่วใหม่</button>
     </div>
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center pb-16 md:pb-0">
       <img class="quest-image hidden w-full max-w-xs rounded border-4 border-yellow-400 cursor-pointer" src="" alt="Side Quest 2" />
       <button class="draw-btn mt-2 bg-green-700 px-3 py-2 rounded hover:bg-green-600 hidden" data-index="1" id="drawBtn1">ทิ้งเควสแล้วจั่วใหม่</button>
     </div>
